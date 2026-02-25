@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MCT Страхование — СК Салем</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600;700&family=Unbounded:wght@700&display=swap" rel="stylesheet">
+
+<style>
+*{
+Font-family:'Unbounded', sans-serif;
+font-weight:800;
+}
+body {
+    background: #f0f2f5;
+    color: #333;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+/* BRAND TOP - СТИЛЬНЫЙ ЛОГО ТЕКСТ */
+.brand-top {
+    position: fixed;
+    top: 0;
+    width: 317px;
+    padding: 10px 30px;
+    background: #fff; /* Можно заменить на полупрозрачный белый: rgba(255,255,255,0.95) */
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-bottom: 6px solid #FFD600;
+    border-radius: 0 0 30px 30px; /* верхние углы 0, нижние 15px */
+}
+
+.brand-top h2 {
+    font-family: 'Unbounded', sans-serif; /* Стильный шрифт */
+    font-size: clamp(10px, 6vw, 700px); /* Адаптивный размер */
+    font-weight: 800;
+    background: linear-gradient(90deg, #FFD600, #FF2E63);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease, text-shadow 0.3s ease;
+    text-align:left;
+}
+
+.brand-top h2:hover {
+    transform: scale(1.05);
+    text-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+header {
+    margin-top: 85px;
+    padding: 70px 10px;
+    text-align: center;
+    background-image: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('https://salemalemtour.kz/wp-content/uploads/2018/02/6fb3b10c69eab39cf1f87c2fa5441046-0-1024x768.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+}
+header h1 {
+    font-size: clamp(28px, 5vw, 60px);
+    color: #0056b3;
+}
+.container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+.section {
+    margin-bottom: 50px;
+}
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+*:focus {  
+  outline: none;  
+}  
+button:hover {  
+    transform: scale(0.95);  
+    transition: 0.1s;  
+}  
+  
+/* Убирает синее выделение (tap highlight) на мобильных устройствах */  
+* {  
+    -webkit-tap-highlight-color: transparent;  
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0); /* Для старых версий Android */  
+    outline: none; /* Убирает контур фокуса в некоторых браузерах */  
+}  
+  
+/* Если нужно убрать выделение вообще у всех кликабельных элементов на странице */  
+* {  
+    -webkit-tap-highlight-color: transparent;  
+}  
+.feature-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+.image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+.image-gallery img {
+    width: 300px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+.image-gallery img:hover {
+    transform: scale(1.05);
+  
+}
+footer {
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+    border-radius: 20px 20px 0 0;
+}
+footer h2 {
+    font-family: 'Unbounded', sans-serif;
+    margin-bottom: 10px;
+}
+footer .rights {
+    margin-top: 20px;
+    font-size: 12px;
+    opacity: 0.5;
+}
+.burger-btn {
+    position: fixed;
+    top: 37px;
+    right: 17px;
+    width: 20px;
+    cursor: pointer;
+    z-index: 1001;
+    border-radius:30px; 
+}
+.burger-btn span {
+    display: block;
+    height: 3px;
+    margin: 3px 0;
+    background: black;
+    border-radius: 2px;
+}
+.overlay {
+    position: fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background: rgba(0,0,0,0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s;
+    z-index: 1000;
+}
+.overlay.active {
+    opacity:1;
+    pointer-events:auto;
+}
+.menu {
+    position: fixed;
+    top: 120px;
+    right: 30px;
+    width: 300px;
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s;
+    z-index: 1002;
+}
+.menu.active {
+    opacity:1;
+    pointer-events:auto;
+}
+.menu a {
+    display:block;
+    margin: 15px 0;
+    font-weight: 600;
+    color: #000;
+    text-decoration: none;
+    font-size: 18px;
+}
+.menu a img {
+    width: 24px;
+    margin-right: 8px;
+    vertical-align: middle;
+    border-radius: 6px;
+}
+</style>
+</head>
+<body>
+
+<div class="brand-top">
+    <h2>SALEM ALEM TOUR</h2>
+</div>
+
+<header>
+    <h1>Международное страхование MCT</h1>
+</header>
+
+<div class="container">
+
+    <div class="section">
+        <h2>Почему выбирают программу MCT?</h2>
+        <div class="features">
+            <div class="feature-card">
+                <h3>Глобальное покрытие</h3>
+                <p>Доступ к лучшим клиникам и специалистам по всему миру без границ.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Экстренная помощь</h3>
+                <p>Полная оплата госпитализации, медикаментов и транспортных расходов.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Ассистанс 24/7</h3>
+                <p>Круглосуточная поддержка на родном языке в любой ситуации.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Наши офисы и команда</h2>
+        <div class="image-gallery">
+            <img src="https://salemalemtour.kz/wp-content/uploads/2018/02/6fb3b10c69eab39cf1f87c2fa5441046-0-1024x768.jpg" alt="Офис Салем">
+            <img src="https://salemalemtour.kz/wp-content/uploads/2018/02/6fb3b10c69eab39cf1f87c2fa5441046-1-1024x768.jpg" alt="Сотрудники">
+            <img src="https://salemalemtour.kz/wp-content/uploads/2018/02/6fb3b10c69eab39cf1f87c2fa5441046-3-1024x768.jpg" alt="Ресепшн">
+            <img src="https://salemalemtour.kz/wp-content/uploads/2018/02/6fb3b10c69eab39cf1f87c2fa5441046-4-1024x768.jpg" alt="Правогласия">
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Часто задаваемые вопросы</h2>
+        <p><strong>Нужно ли распечатывать полис?</strong><br>Нет, достаточно иметь электронную версию в телефоне.</p>
+        <p><strong>Действует ли страховка при COVID-19?</strong><br>Да, лечение включено во все программы MCT.</p>
+    </div>
+
+</div>
+
+<!-- BURGER MENU -->
+<div class="burger-btn" onclick="toggleMenu(this)">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+<div class="overlay" id="overlay" onclick="closeMenu()"></div>
+<div class="menu" id="menu">
+    <a href="#"><img src="https://uxwing.com/wp-content/themes/uxwing/download/location-travel-map/world-tour-icon.png"> ТУРЫ</a>
+    <a href="#"><img src="https://vagonchikspb.ru/upload/resize_cache/iblock/534/400_400_140cd750bba9870f18aada2478b24840a/534d37ad84779588b7b51af7c1c4ebb0.jpg"> СТРАХОВАНИЕ | MCT</a>
+</div>
+
+<footer>
+    <h2>SALEM ALEM TOUR</h2>
+    <p>Ваш отдых — наша забота.</p>
+    <div class="rights">© 2026 | ВСЕ ПРАВА ЗАЩИЩЕНЫ</div>
+</footer>
+
+<script>
+function toggleMenu(btn){
+    document.getElementById('menu').classList.toggle('active');
+    document.getElementById('overlay').classList.toggle('active');
+}
+function closeMenu(){
+    document.getElementById('menu').classList.remove('active');
+    document.getElementById('overlay').classList.remove('active');
+}
+</script>
+
+</body>
+</html>
